@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package calculator;
+
+option go_package = "github.com/LeQuanHuyHoang/grpc-go-course/calculator/proto";
+
+import "calculator.proto";
+
+service CalculatorService {
+  rpc Sum(SumRequest) returns (SumResponse);
+  rpc Prime(PrimeRequest) returns (stream PrimeResponse);
+  rpc Avg(stream AverageRequest) returns (AverageResponse);
+}
