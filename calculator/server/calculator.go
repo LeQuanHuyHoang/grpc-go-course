@@ -2,9 +2,14 @@ package main
 
 import (
 	"context"
+	"fmt"
 	pb "github.com/LeQuanHuyHoang/grpc-go-course/calculator/proto"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 	"io"
 	"log"
+	"math"
+	"slices"
 )
 
 func (s *Server) Sum(ctx context.Context, in *pb.SumRequest) (*pb.SumResponse, error) {
@@ -60,4 +65,45 @@ func (s *Server) Avg(stream pb.CalculatorService_AvgServer) error {
 
 		rs = append(rs, req.Number)
 	}
+}
+
+func (s *Server) Maximum(stream pb.CalculatorService_MaximumServer) error {
+	log.Println("Maximum function")
+	var reqs []int32
+
+	for {
+		req, err := stream.Recv()
+
+		if err == io.EOF {
+			return nil
+		}
+
+		if err != nil {
+			log.Fatalf("Error while reading from client: %v", err)
+		}
+
+		reqs = append(reqs, req.Number)
+		res := slices.Max(reqs)
+		err = stream.Send(&pb.MaximumResponse{
+			Max: res,
+		})
+
+		if err != nil {
+			log.Fatalf("Error while sending data to client: %v", err)
+		}
+	}
+}
+
+func (s *Server) Sqrt(ctx context.Context, in *pb.SqrtRequest) (*pb.SqrtResponse, error) {
+	log.Println("Sqrt was invoked")
+
+	num := in.Number
+
+	if num < 0 {
+		return nil, status.Errorf(codes.InvalidArgument, fmt.Sprintf("Received invalid number: %d\n", num))
+	}
+
+	return &pb.SqrtResponse{
+		Result: math.Sqrt(float64(num)),
+	}, nil
 }

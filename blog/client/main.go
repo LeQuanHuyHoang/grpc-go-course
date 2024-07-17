@@ -1,7 +1,7 @@
 package main
 
 import (
-	pb "github.com/LeQuanHuyHoang/grpc-go-course/greet/proto"
+	pb "github.com/LeQuanHuyHoang/grpc-go-course/blog/proto"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"log"
@@ -17,10 +17,13 @@ func main() {
 	}
 
 	defer conn.Close()
-	c := pb.NewGreetServiceClient(conn)
+	c := pb.NewBlogServiceClient(conn)
 
-	//doGreet(c)
-	//doGreetManyTimes(c)
-	//doLongGreet(c)
-	doGreetEveryone(c)
+	id := createBlog(c)
+	readBlog(c, id)
+	//readBlog(c, "invalidID")
+	//updateBlog(c, id, "Thu", "2015")
+	listBlog(c)
+	deleteBlog(c, id)
+	listBlog(c)
 }

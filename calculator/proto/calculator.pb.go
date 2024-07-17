@@ -310,6 +310,194 @@ func (x *AverageResponse) GetResult() float64 {
 	return 0
 }
 
+type MaximumRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Number int32 `protobuf:"varint,1,opt,name=number,proto3" json:"number,omitempty"`
+}
+
+func (x *MaximumRequest) Reset() {
+	*x = MaximumRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_calculator_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MaximumRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MaximumRequest) ProtoMessage() {}
+
+func (x *MaximumRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_calculator_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MaximumRequest.ProtoReflect.Descriptor instead.
+func (*MaximumRequest) Descriptor() ([]byte, []int) {
+	return file_calculator_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *MaximumRequest) GetNumber() int32 {
+	if x != nil {
+		return x.Number
+	}
+	return 0
+}
+
+type MaximumResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Max int32 `protobuf:"varint,1,opt,name=max,proto3" json:"max,omitempty"`
+}
+
+func (x *MaximumResponse) Reset() {
+	*x = MaximumResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_calculator_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MaximumResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MaximumResponse) ProtoMessage() {}
+
+func (x *MaximumResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_calculator_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MaximumResponse.ProtoReflect.Descriptor instead.
+func (*MaximumResponse) Descriptor() ([]byte, []int) {
+	return file_calculator_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *MaximumResponse) GetMax() int32 {
+	if x != nil {
+		return x.Max
+	}
+	return 0
+}
+
+type SqrtRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Number int32 `protobuf:"varint,1,opt,name=number,proto3" json:"number,omitempty"` // could be uint32
+}
+
+func (x *SqrtRequest) Reset() {
+	*x = SqrtRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_calculator_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SqrtRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SqrtRequest) ProtoMessage() {}
+
+func (x *SqrtRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_calculator_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SqrtRequest.ProtoReflect.Descriptor instead.
+func (*SqrtRequest) Descriptor() ([]byte, []int) {
+	return file_calculator_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *SqrtRequest) GetNumber() int32 {
+	if x != nil {
+		return x.Number
+	}
+	return 0
+}
+
+type SqrtResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Result float64 `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
+}
+
+func (x *SqrtResponse) Reset() {
+	*x = SqrtResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_calculator_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SqrtResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SqrtResponse) ProtoMessage() {}
+
+func (x *SqrtResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_calculator_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SqrtResponse.ProtoReflect.Descriptor instead.
+func (*SqrtResponse) Descriptor() ([]byte, []int) {
+	return file_calculator_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *SqrtResponse) GetResult() float64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_calculator_proto protoreflect.FileDescriptor
 
 var file_calculator_proto_rawDesc = []byte{
@@ -332,11 +520,21 @@ var file_calculator_proto_rawDesc = []byte{
 	0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72,
 	0x22, 0x29, 0x0a, 0x0f, 0x41, 0x76, 0x65, 0x72, 0x61, 0x67, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f,
 	0x6e, 0x73, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x01, 0x52, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x42, 0x3b, 0x5a, 0x39, 0x67,
-	0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x4c, 0x65, 0x51, 0x75, 0x61, 0x6e,
-	0x48, 0x75, 0x79, 0x48, 0x6f, 0x61, 0x6e, 0x67, 0x2f, 0x67, 0x72, 0x70, 0x63, 0x2d, 0x67, 0x6f,
-	0x2d, 0x63, 0x6f, 0x75, 0x72, 0x73, 0x65, 0x2f, 0x63, 0x61, 0x6c, 0x63, 0x75, 0x6c, 0x61, 0x74,
-	0x6f, 0x72, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x01, 0x28, 0x01, 0x52, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0x28, 0x0a, 0x0e, 0x4d,
+	0x61, 0x78, 0x69, 0x6d, 0x75, 0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x16, 0x0a,
+	0x06, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x6e,
+	0x75, 0x6d, 0x62, 0x65, 0x72, 0x22, 0x23, 0x0a, 0x0f, 0x4d, 0x61, 0x78, 0x69, 0x6d, 0x75, 0x6d,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x10, 0x0a, 0x03, 0x6d, 0x61, 0x78, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x03, 0x6d, 0x61, 0x78, 0x22, 0x25, 0x0a, 0x0b, 0x53, 0x71,
+	0x72, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x16, 0x0a, 0x06, 0x6e, 0x75, 0x6d,
+	0x62, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x6e, 0x75, 0x6d, 0x62, 0x65,
+	0x72, 0x22, 0x26, 0x0a, 0x0c, 0x53, 0x71, 0x72, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x16, 0x0a, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x01, 0x52, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x42, 0x3b, 0x5a, 0x39, 0x67, 0x69, 0x74,
+	0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x4c, 0x65, 0x51, 0x75, 0x61, 0x6e, 0x48, 0x75,
+	0x79, 0x48, 0x6f, 0x61, 0x6e, 0x67, 0x2f, 0x67, 0x72, 0x70, 0x63, 0x2d, 0x67, 0x6f, 0x2d, 0x63,
+	0x6f, 0x75, 0x72, 0x73, 0x65, 0x2f, 0x63, 0x61, 0x6c, 0x63, 0x75, 0x6c, 0x61, 0x74, 0x6f, 0x72,
+	0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -351,7 +549,7 @@ func file_calculator_proto_rawDescGZIP() []byte {
 	return file_calculator_proto_rawDescData
 }
 
-var file_calculator_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_calculator_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_calculator_proto_goTypes = []interface{}{
 	(*SumRequest)(nil),      // 0: calculator.SumRequest
 	(*SumResponse)(nil),     // 1: calculator.SumResponse
@@ -359,6 +557,10 @@ var file_calculator_proto_goTypes = []interface{}{
 	(*PrimeResponse)(nil),   // 3: calculator.PrimeResponse
 	(*AverageRequest)(nil),  // 4: calculator.AverageRequest
 	(*AverageResponse)(nil), // 5: calculator.AverageResponse
+	(*MaximumRequest)(nil),  // 6: calculator.MaximumRequest
+	(*MaximumResponse)(nil), // 7: calculator.MaximumResponse
+	(*SqrtRequest)(nil),     // 8: calculator.SqrtRequest
+	(*SqrtResponse)(nil),    // 9: calculator.SqrtResponse
 }
 var file_calculator_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -446,6 +648,54 @@ func file_calculator_proto_init() {
 				return nil
 			}
 		}
+		file_calculator_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MaximumRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_calculator_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MaximumResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_calculator_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SqrtRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_calculator_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SqrtResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -453,7 +703,7 @@ func file_calculator_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_calculator_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

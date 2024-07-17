@@ -19,5 +19,5 @@ func main() {
 	defer conn.Close()
 	c := pb.NewCalculatorServiceClient(conn)
 
-	doAvg(c)
+	doSqrt(c, -3)
 }

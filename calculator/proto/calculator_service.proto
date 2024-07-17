@@ -10,4 +10,6 @@ service CalculatorService {
   rpc Sum(SumRequest) returns (SumResponse);
   rpc Prime(PrimeRequest) returns (stream PrimeResponse);
   rpc Avg(stream AverageRequest) returns (AverageResponse);
+  rpc Maximum (stream MaximumRequest) returns (stream MaximumResponse);
+  rpc Sqrt(SqrtRequest) returns (SqrtResponse);
 }

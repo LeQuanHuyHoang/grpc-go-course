@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	pb "github.com/LeQuanHuyHoang/grpc-go-course/calculator/proto"
+	"google.golang.org/grpc/status"
 	"io"
 	"log"
 	"time"
@@ -76,4 +77,66 @@ func doAvg(c pb.CalculatorServiceClient) {
 	}
 
 	log.Printf("Avg: %f", res.Result)
+}
+
+func doMaximum(c pb.CalculatorServiceClient) {
+	log.Println("DoMaximum")
+
+	stream, err := c.Maximum(context.Background())
+
+	if err != nil {
+		log.Fatalf("Error while creating stream: %v", err)
+	}
+
+	reqs := []int32{1, 3, 5, 2, 5, 6, 7}
+
+	waitc := make(chan struct{})
+
+	go func() {
+		for _, req := range reqs {
+			log.Printf("Send request: %v\n", req)
+			stream.Send(&pb.MaximumRequest{Number: req})
+			time.Sleep(time.Second)
+		}
+		stream.CloseSend()
+	}()
+
+	go func() {
+		for {
+			res, err := stream.Recv()
+
+			if err == io.EOF {
+				break
+			}
+
+			if err != nil {
+				log.Printf("Error while receiving: %v\n", err)
+				break
+			}
+
+			log.Printf("Received max: %v\n", res.Max)
+		}
+		close(waitc)
+	}()
+
+	<-waitc
+}
+
+func doSqrt(c pb.CalculatorServiceClient, n int32) {
+	res, err := c.Sqrt(context.Background(), &pb.SqrtRequest{
+		Number: n,
+	})
+
+	if err != nil {
+		e, ok := status.FromError(err)
+		if ok {
+			log.Printf("Error message from server: %s\n", e.Message())
+			log.Printf("Error code: %s\n", e.Code())
+		} else {
+			log.Fatalf("non gRPC error: %v", err)
+		}
+		log.Fatalf("Failed to calculate: %v", err)
+	}
+
+	log.Printf("Sqrt: %f\n", res.Result)
 }
